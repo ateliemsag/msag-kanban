@@ -1,0 +1,16 @@
+[
+  {
+    "id": "proj-001",
+    "cliente": "Maria da Silva",
+    "etapa": "ideia",
+    "prazo": "2025-08-20",
+    "materiais": ["renda francesa", "zíper"]
+  },
+  {
+    "id": "proj-002",
+    "cliente": "Ana Clara",
+    "etapa": "modelagem",
+    "prazo": "2025-08-25",
+    "materiais": ["tule", "pedrarias"]
+  }
+]
