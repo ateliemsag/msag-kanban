@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Controle de Estoque - MSAG</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+<body class="bg-gray-100 p-6">
+  <h1 class="text-2xl font-bold text-gray-800 mb-4">🧵 Estoque do Ateliê MSAG</h1>
+  <div id="estoque-lista" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"></div>
+
+  <script>
+    fetch('data/estoque.json')
+      .then(response => response.json())
+      .then(estoque => {
+        const container = document.getElementById('estoque-lista');
+        estoque.forEach(item => {
+          const alert = item.quantidade < 5 ? 'text-red-600 font-bold' : 'text-green-700';
+          const card = document.createElement('div');
+          card.className = 'bg-white p-4 rounded shadow';
+          card.innerHTML = `
+            <h2 class="text-lg font-semibold">${item.item}</h2>
+            <p class="${alert}">Quantidade: ${item.quantidade} ${item.unidade}</p>
+          `;
+          container.appendChild(card);
+        });
+      });
+  </script>
+</body>
+</html>
